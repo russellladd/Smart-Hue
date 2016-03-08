@@ -10,6 +10,14 @@ import UIKit
 
 class MyWalksViewController: UIViewController, UICollectionViewDataSource, UICollectionViewDelegate, CurrentWalkViewControllerDelegate {
 
+    // MARK: Constants
+
+    let collectionViewTag = 10
+
+    // MARK: Model
+
+    var pastWalks = [Walk]()
+
     // MARK: View Controller Lifecycle
 
     override func loadView() {
@@ -32,6 +40,7 @@ class MyWalksViewController: UIViewController, UICollectionViewDataSource, UICol
         let collectionView = UICollectionView(frame: self.view.frame, collectionViewLayout: layout)
         collectionView.dataSource = self
         collectionView.delegate = self
+        collectionView.tag = collectionViewTag
         collectionView.backgroundColor = UIColor.whiteColor()
         collectionView.registerClass(WalkCell.self, forCellWithReuseIdentifier: "identifier")
 
@@ -41,14 +50,14 @@ class MyWalksViewController: UIViewController, UICollectionViewDataSource, UICol
     func collectionView(collectionView: UICollectionView, cellForItemAtIndexPath indexPath: NSIndexPath) -> UICollectionViewCell {
 
         let cell = collectionView.dequeueReusableCellWithReuseIdentifier("identifier", forIndexPath: indexPath) as! WalkCell
-        cell.stepsLabel.text = "0"
+        cell.stepsLabel.text = pastWalks[indexPath.row].numberOfSteps.description
 
         return cell
 
     }
 
     func collectionView(collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 10
+        return pastWalks.count
     }
 
     func startWalk() {
@@ -66,8 +75,9 @@ class MyWalksViewController: UIViewController, UICollectionViewDataSource, UICol
     }
 
     func currentWalkViewController(currentWalkViewController: CurrentWalkViewController, didFinishWithWalk walk: Walk) {
-        print(walk)
+        pastWalks.append(walk)
         dismissViewControllerAnimated(true, completion: nil)
+        (self.view.viewWithTag(collectionViewTag) as! UICollectionView).reloadData()
     }
     
 }

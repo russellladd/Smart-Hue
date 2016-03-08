@@ -100,10 +100,12 @@ class CurrentWalkViewController: UIViewController {
     // MARK: Actions
 
     func cancelWalk() {
+        pedometer.stopPedometerUpdates()
         self.delegate!.currentWalkViewControllerDidCancel()
     }
 
     func finishWalk() {
+        pedometer.stopPedometerUpdates()
         currentWalk.endDate = NSDate()
         self.delegate!.currentWalkViewController(self, didFinishWithWalk: currentWalk)
     }
