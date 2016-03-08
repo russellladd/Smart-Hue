@@ -10,30 +10,47 @@ import UIKit
 import CoreMotion
 
 protocol CurrentWalkViewControllerDelegate: class {
-    
-    func onWalkViewControllerDidCancel()
-    func onWalkViewController(onWalkViewController: CurrentWalkViewController, didFinishWithWalk walk: Int)
+    func currentWalkViewControllerDidCancel()
+    func currentWalkViewController(currentWalkViewController: CurrentWalkViewController, didFinishWithWalk walk: Walk)
 }
 
 class CurrentWalkViewController: UIViewController {
 
-    let pedometer = CMPedometer()
+    // MARK: Views
 
     let circleView = CircleView()
     let stepsLabel = UILabel()
 
-    var numberOfSteps: Int = 0 {
+    // MARK: Model
+
+    let pedometer = CMPedometer()
+
+    var currentWalk: Walk = Walk() {
         didSet {
             updateNumberOfStepsLabel()
         }
     }
 
-    private func updateNumberOfStepsLabel() {
-        stepsLabel.text = numberOfSteps.description
-    }
+    // MARK: Delegate
+
+    weak var delegate: CurrentWalkViewControllerDelegate?
+
+    // MARK: View Controller Lifecycle
 
     override func viewDidLoad() {
-        super.viewDidLoad()
+        startPedometer()
+    }
+
+    override func loadView() {
+        self.view = UIView(frame: UIScreen.mainScreen().bounds)
+        self.view.backgroundColor = UIColor.whiteColor()
+        self.title = "Current Walk"
+
+        // UINavigationBar Content
+        let cancelButton = UIBarButtonItem(title: "Cancel", style: .Done, target: self, action: "cancelWalk")
+        let finishButton = UIBarButtonItem(title: "Finish", style: .Done, target: self, action: "finishWalk")
+        self.navigationItem.setLeftBarButtonItem(cancelButton, animated: true)
+        self.navigationItem.setRightBarButtonItem(finishButton, animated: true)
 
         circleView.translatesAutoresizingMaskIntoConstraints = false
         stepsLabel.translatesAutoresizingMaskIntoConstraints = false
@@ -47,23 +64,47 @@ class CurrentWalkViewController: UIViewController {
         self.view.addSubview(stepsLabel)
 
         NSLayoutConstraint.activateConstraints([
+            // Circle View Constraints
             circleView.widthAnchor.constraintEqualToAnchor(self.view.widthAnchor, multiplier: 0.5),
             circleView.heightAnchor.constraintEqualToAnchor(circleView.widthAnchor),
             circleView.centerXAnchor.constraintEqualToAnchor(self.view.centerXAnchor),
             circleView.centerYAnchor.constraintEqualToAnchor(self.view.centerYAnchor),
 
-            // Steps Label
+            // Steps Label Constraints
             stepsLabel.centerXAnchor.constraintEqualToAnchor(self.circleView.centerXAnchor),
             stepsLabel.centerYAnchor.constraintEqualToAnchor(self.circleView.centerYAnchor)
-        ])
+            ])
+    }
 
+    // MARK: Model Updating
+
+    func startPedometer() {
         pedometer.startPedometerUpdatesFromDate(NSDate(), withHandler: {
-            data, error in
-            if let err = error {
-                print(err)
+            pedometerData, error in
+
+            if let data = pedometerData {
+                self.currentWalk.numberOfSteps = data.numberOfSteps.integerValue
             } else {
-                self.numberOfSteps = data?.numberOfSteps as! Int
+                print(error ?? "Unknown Error")
             }
+
         })
+    }
+
+    // MARK: View Updating
+
+    func updateNumberOfStepsLabel() {
+        stepsLabel.text = currentWalk.numberOfSteps.description
+    }
+
+    // MARK: Actions
+
+    func cancelWalk() {
+        self.delegate!.currentWalkViewControllerDidCancel()
+    }
+
+    func finishWalk() {
+        currentWalk.endDate = NSDate()
+        self.delegate!.currentWalkViewController(self, didFinishWithWalk: currentWalk)
     }
 }

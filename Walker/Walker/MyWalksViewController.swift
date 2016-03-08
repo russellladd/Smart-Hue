@@ -8,30 +8,30 @@
 
 import UIKit
 
-class WalkerViewController: UIViewController, UICollectionViewDataSource, UICollectionViewDelegate {
+class MyWalksViewController: UIViewController, UICollectionViewDataSource, UICollectionViewDelegate, CurrentWalkViewControllerDelegate {
 
-    override func viewDidLoad() {
-        super.viewDidLoad()
-
-        self.title = "Walks"
-
-        let startButton = UIBarButtonItem(title: "Start Walk", style: .Done, target: self, action: "startWalk")
-
-        self.navigationItem.setRightBarButtonItem(startButton, animated: true)
-
-    }
+    // MARK: View Controller Lifecycle
 
     override func loadView() {
         self.view = UIView(frame: UIScreen.mainScreen().bounds)
+        self.title = "Walks"
+
+        // UINavigationBar content
+
+        let startButton = UIBarButtonItem(title: "Start Walk", style: .Done, target: self, action: "startWalk")
+        self.navigationItem.setRightBarButtonItem(startButton, animated: true)
+
+        // UICollectionView layout settings
 
         let layout = UICollectionViewFlowLayout()
         layout.sectionInset = UIEdgeInsets(top: 20, left: 10, bottom: 10, right: 10)
         layout.itemSize = CGSize(width: 120, height: 120)
 
+        // UICollectionView instantiation
+
         let collectionView = UICollectionView(frame: self.view.frame, collectionViewLayout: layout)
         collectionView.dataSource = self
         collectionView.delegate = self
-
         collectionView.backgroundColor = UIColor.whiteColor()
         collectionView.registerClass(WalkCell.self, forCellWithReuseIdentifier: "identifier")
 
@@ -41,22 +41,33 @@ class WalkerViewController: UIViewController, UICollectionViewDataSource, UIColl
     func collectionView(collectionView: UICollectionView, cellForItemAtIndexPath indexPath: NSIndexPath) -> UICollectionViewCell {
 
         let cell = collectionView.dequeueReusableCellWithReuseIdentifier("identifier", forIndexPath: indexPath) as! WalkCell
-        cell.stepsLabel.text = "Hello"
-
-        if indexPath.row == 52 {
-            cell.stepsLabel.text = "It's me"
-        }
+        cell.stepsLabel.text = "0"
 
         return cell
 
     }
 
     func collectionView(collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 100
+        return 10
     }
 
     func startWalk() {
-        self.navigationController?.pushViewController(CurrentWalkViewController(), animated: true)
+        let currentWalkViewController = CurrentWalkViewController()
+        let currentWalkNavigationController = UINavigationController(rootViewController: currentWalkViewController)
+        currentWalkViewController.delegate = self
+
+        presentViewController(currentWalkNavigationController, animated: true, completion: nil)
     }
 
+    // MARK: CurrentWalkViewController Delegate
+
+    func currentWalkViewControllerDidCancel() {
+        dismissViewControllerAnimated(true, completion: nil)
+    }
+
+    func currentWalkViewController(currentWalkViewController: CurrentWalkViewController, didFinishWithWalk walk: Walk) {
+        print(walk)
+        dismissViewControllerAnimated(true, completion: nil)
+    }
+    
 }
