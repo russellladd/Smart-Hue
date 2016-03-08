@@ -38,7 +38,12 @@ class CurrentWalkViewController: UIViewController {
     // MARK: View Controller Lifecycle
 
     override func viewDidLoad() {
-        startPedometer()
+        if !CMPedometer.isStepCountingAvailable() {
+            print("not available")
+        } else {
+            startPedometer()
+        }
+        
     }
 
     override func loadView() {
@@ -79,16 +84,16 @@ class CurrentWalkViewController: UIViewController {
     // MARK: Model Updating
 
     func startPedometer() {
-        pedometer.startPedometerUpdatesFromDate(NSDate(), withHandler: {
-            pedometerData, error in
-
-            if let data = pedometerData {
-                self.currentWalk.numberOfSteps = data.numberOfSteps.integerValue
-            } else {
-                print(error ?? "Unknown Error")
-            }
-
-        })
+            self.pedometer.startPedometerUpdatesFromDate(NSDate(), withHandler: {
+                pedometerData, error in
+                if let data = pedometerData {
+                    dispatch_async(dispatch_get_main_queue()) {
+                        self.currentWalk.numberOfSteps = data.numberOfSteps.integerValue
+                    }
+                } else {
+                    print(error ?? "Unknown Error")
+                }
+            })
     }
 
     // MARK: View Updating
