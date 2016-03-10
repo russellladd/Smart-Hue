@@ -10,6 +10,7 @@ import UIKit
 import CoreMotion
 
 protocol CurrentWalkViewControllerDelegate: class {
+    
     func currentWalkViewControllerDidCancel()
     func currentWalkViewController(currentWalkViewController: CurrentWalkViewController, didFinishWithWalk walk: Walk)
 }
@@ -34,17 +35,8 @@ class CurrentWalkViewController: UIViewController {
     // MARK: Delegate
 
     weak var delegate: CurrentWalkViewControllerDelegate?
-
-    // MARK: View Controller Lifecycle
-
-    override func viewDidLoad() {
-        if !CMPedometer.isStepCountingAvailable() {
-            print("not available")
-        } else {
-            startPedometer()
-        }
-        
-    }
+    
+    // MARK: View life cycle
 
     override func loadView() {
         self.view = UIView(frame: UIScreen.mainScreen().bounds)
@@ -79,6 +71,15 @@ class CurrentWalkViewController: UIViewController {
             stepsLabel.centerXAnchor.constraintEqualToAnchor(self.circleView.centerXAnchor),
             stepsLabel.centerYAnchor.constraintEqualToAnchor(self.circleView.centerYAnchor)
             ])
+    }
+    
+    override func viewDidLoad() {
+        if !CMPedometer.isStepCountingAvailable() {
+            print("not available")
+        } else {
+            startPedometer()
+        }
+        
     }
 
     // MARK: Model Updating

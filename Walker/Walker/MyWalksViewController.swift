@@ -9,77 +9,107 @@
 import UIKit
 
 class MyWalksViewController: UIViewController, UICollectionViewDataSource, UICollectionViewDelegate, CurrentWalkViewControllerDelegate {
-
-    // MARK: Constants
-
-    let collectionViewTag = 10
-
+    
+    // MARK: Initialization
+    
+    override init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: NSBundle?) {
+        super.init(nibName: nibNameOrNil, bundle: nibBundleOrNil)
+        
+        self.title = "My Walks"
+        
+        let startButton = UIBarButtonItem(title: "Start Walk", style: .Plain, target: self, action: "startWalk")
+        self.navigationItem.setRightBarButtonItem(startButton, animated: false)
+    }
+    
+    required init?(coder aDecoder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+    
     // MARK: Model
-
-    var pastWalks = [Walk]()
-
-    // MARK: View Controller Lifecycle
-
+    
+    var pastWalks = [Walk]() {
+        didSet {
+            collectionView?.reloadData()
+        }
+    }
+    
+    // MARK: View
+    
+    var collectionView: UICollectionView!
+    
+    // MARK: View life cycle
+    
     override func loadView() {
-        self.view = UIView(frame: UIScreen.mainScreen().bounds)
-        self.title = "Walks"
-
-        // UINavigationBar content
-
-        let startButton = UIBarButtonItem(title: "Start Walk", style: .Done, target: self, action: "startWalk")
-        self.navigationItem.setRightBarButtonItem(startButton, animated: true)
-
-        // UICollectionView layout settings
-
-        let cellSize = 80
-
+        
+        // Create view
+        
+        view = UIView()
+        
+        // Create layout
+        
         let layout = UICollectionViewFlowLayout()
-        layout.sectionInset = UIEdgeInsets(top: 20, left: 10, bottom: 10, right: 10)
-        layout.itemSize = CGSize(width: cellSize, height: cellSize)
-
-        // UICollectionView instantiation
-
-        let collectionView = UICollectionView(frame: self.view.frame, collectionViewLayout: layout)
+        layout.sectionInset = UIEdgeInsets(top: 15.0, left: 15.0, bottom: 15.0, right: 15.0)
+        layout.itemSize = CGSize(width: 60.0, height: 60.0)
+        
+        // Create collection view
+        
+        collectionView = UICollectionView(frame: CGRect.zero, collectionViewLayout: layout)
+        collectionView.translatesAutoresizingMaskIntoConstraints = false
         collectionView.dataSource = self
         collectionView.delegate = self
-        collectionView.tag = collectionViewTag
         collectionView.backgroundColor = UIColor.whiteColor()
-        collectionView.registerClass(WalkCell.self, forCellWithReuseIdentifier: "identifier")
-
-        self.view.addSubview(collectionView)
+        collectionView.registerClass(WalkCell.self, forCellWithReuseIdentifier: "Walk Cell")
+        
+        view.addSubview(collectionView)
+        
+        // Create constraints
+        
+        NSLayoutConstraint.activateConstraints([
+            collectionView.leadingAnchor.constraintEqualToAnchor(view.leadingAnchor),
+            collectionView.trailingAnchor.constraintEqualToAnchor(view.trailingAnchor),
+            collectionView.topAnchor.constraintEqualToAnchor(view.topAnchor),
+            collectionView.bottomAnchor.constraintEqualToAnchor(view.bottomAnchor)
+        ])
     }
-
-    func collectionView(collectionView: UICollectionView, cellForItemAtIndexPath indexPath: NSIndexPath) -> UICollectionViewCell {
-
-        let cell = collectionView.dequeueReusableCellWithReuseIdentifier("identifier", forIndexPath: indexPath) as! WalkCell
-        cell.stepsLabel.text = pastWalks[indexPath.row].numberOfSteps.description
-
-        return cell
-
-    }
-
+    
+    // MARK: Collection view data source
+    
     func collectionView(collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return pastWalks.count
     }
-
+    
+    func collectionView(collectionView: UICollectionView, cellForItemAtIndexPath indexPath: NSIndexPath) -> UICollectionViewCell {
+        
+        let cell = collectionView.dequeueReusableCellWithReuseIdentifier("Walk Cell", forIndexPath: indexPath) as! WalkCell
+        
+        cell.stepsLabel.text = pastWalks[indexPath.row].numberOfSteps.description
+        
+        return cell
+    }
+    
+    // MARK: Actions
+    
     func startWalk() {
+        
         let currentWalkViewController = CurrentWalkViewController()
-        let currentWalkNavigationController = UINavigationController(rootViewController: currentWalkViewController)
         currentWalkViewController.delegate = self
-
+        
+        let currentWalkNavigationController = UINavigationController(rootViewController: currentWalkViewController)
+        
         presentViewController(currentWalkNavigationController, animated: true, completion: nil)
     }
-
-    // MARK: CurrentWalkViewController Delegate
-
+    
+    // MARK: Current walk view controller delegate
+    
     func currentWalkViewControllerDidCancel() {
         dismissViewControllerAnimated(true, completion: nil)
     }
-
+    
     func currentWalkViewController(currentWalkViewController: CurrentWalkViewController, didFinishWithWalk walk: Walk) {
+        
         pastWalks.append(walk)
+        
         dismissViewControllerAnimated(true, completion: nil)
-        (self.view.viewWithTag(collectionViewTag) as! UICollectionView).reloadData()
     }
     
 }
