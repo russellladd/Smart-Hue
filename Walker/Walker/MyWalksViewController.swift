@@ -15,10 +15,10 @@ class MyWalksViewController: UIViewController, UICollectionViewDataSource, UICol
     override init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: NSBundle?) {
         super.init(nibName: nibNameOrNil, bundle: nibBundleOrNil)
         
-        self.title = "My Walks"
+        self.title = "My Colors"
         
-        let startButton = UIBarButtonItem(title: "Start Walk", style: .Plain, target: self, action: "startWalk")
-        self.navigationItem.setRightBarButtonItem(startButton, animated: false)
+        let addButton = UIBarButtonItem(barButtonSystemItem: .Add, target: self, action: "startWalk")
+        self.navigationItem.setRightBarButtonItem(addButton, animated: false)
     }
     
     required init?(coder aDecoder: NSCoder) {
@@ -27,7 +27,7 @@ class MyWalksViewController: UIViewController, UICollectionViewDataSource, UICol
     
     // MARK: Model
     
-    var pastWalks = [Walk]() {
+    var colors = [Color]() {
         didSet {
             collectionView?.reloadData()
         }
@@ -75,15 +75,15 @@ class MyWalksViewController: UIViewController, UICollectionViewDataSource, UICol
     // MARK: Collection view data source
     
     func collectionView(collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return pastWalks.count
+        return colors.count
     }
     
     func collectionView(collectionView: UICollectionView, cellForItemAtIndexPath indexPath: NSIndexPath) -> UICollectionViewCell {
         
         let cell = collectionView.dequeueReusableCellWithReuseIdentifier("Walk Cell", forIndexPath: indexPath) as! WalkCell
-        
-        cell.stepsLabel.text = pastWalks[indexPath.row].numberOfSteps.description
-        
+
+        //cell.circleView.color = UIColor.blueColor()
+
         return cell
     }
     
@@ -105,9 +105,9 @@ class MyWalksViewController: UIViewController, UICollectionViewDataSource, UICol
         dismissViewControllerAnimated(true, completion: nil)
     }
     
-    func currentWalkViewController(currentWalkViewController: CurrentWalkViewController, didFinishWithWalk walk: Walk) {
+    func currentWalkViewController(currentWalkViewController: CurrentWalkViewController, didFinishWithWalk walk: Color) {
         
-        pastWalks.append(walk)
+        colors.append(walk)
         
         dismissViewControllerAnimated(true, completion: nil)
     }

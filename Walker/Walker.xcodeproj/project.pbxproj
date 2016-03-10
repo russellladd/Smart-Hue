@@ -14,7 +14,7 @@
 		70939F3C1C8E37AB00948A12 /* CurrentWalkViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70939F3B1C8E37AB00948A12 /* CurrentWalkViewController.swift */; };
 		70939F3E1C8E37CF00948A12 /* CircleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70939F3D1C8E37CF00948A12 /* CircleView.swift */; };
 		70939F401C8E37E800948A12 /* WalkCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70939F3F1C8E37E800948A12 /* WalkCell.swift */; };
-		70939F441C8E932F00948A12 /* Walk.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70939F431C8E932F00948A12 /* Walk.swift */; };
+		70939F441C8E932F00948A12 /* Color.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70939F431C8E932F00948A12 /* Color.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -27,7 +27,7 @@
 		70939F3B1C8E37AB00948A12 /* CurrentWalkViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CurrentWalkViewController.swift; sourceTree = "<group>"; };
 		70939F3D1C8E37CF00948A12 /* CircleView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CircleView.swift; sourceTree = "<group>"; };
 		70939F3F1C8E37E800948A12 /* WalkCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WalkCell.swift; sourceTree = "<group>"; };
-		70939F431C8E932F00948A12 /* Walk.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Walk.swift; sourceTree = "<group>"; };
+		70939F431C8E932F00948A12 /* Color.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Color.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -92,7 +92,7 @@
 		70939F451C8E933400948A12 /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				70939F431C8E932F00948A12 /* Walk.swift */,
+				70939F431C8E932F00948A12 /* Color.swift */,
 			);
 			name = Model;
 			sourceTree = "<group>";
@@ -171,7 +171,7 @@
 				70939F2C1C8E375900948A12 /* MyWalksViewController.swift in Sources */,
 				70939F3C1C8E37AB00948A12 /* CurrentWalkViewController.swift in Sources */,
 				70939F401C8E37E800948A12 /* WalkCell.swift in Sources */,
-				70939F441C8E932F00948A12 /* Walk.swift in Sources */,
+				70939F441C8E932F00948A12 /* Color.swift in Sources */,
 				70939F2A1C8E375900948A12 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -314,6 +314,7 @@
 				70939F3A1C8E375900948A12 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
