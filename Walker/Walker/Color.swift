@@ -9,14 +9,7 @@
 import UIKit
 
 struct Color {
-
-    var brightness = 0.0
+    var brightness = 1.0
     var hue = 0.0
-    var saturation = 0.0
-
-    init(brightness: Double, hue: Double, saturation: Double = 1) {
-        self.brightness = brightness
-        self.hue = hue
-        self.saturation = saturation
-    }
+    var saturation = 1.0
 }

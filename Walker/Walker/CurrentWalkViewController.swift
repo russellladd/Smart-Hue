@@ -12,7 +12,7 @@ import CoreMotion
 protocol CurrentWalkViewControllerDelegate: class {
     
     func currentWalkViewControllerDidCancel()
-    func currentWalkViewController(currentWalkViewController: CurrentWalkViewController, didFinishWithWalk walk: Walk)
+    func currentWalkViewController(currentWalkViewController: CurrentWalkViewController, didFinishWithWalk walk: Color)
 }
 
 class CurrentWalkViewController: UIViewController {
@@ -26,7 +26,7 @@ class CurrentWalkViewController: UIViewController {
 
     let pedometer = CMPedometer()
 
-    var currentWalk: Walk = Walk() {
+    var currentWalk = Color() {
         didSet {
             updateNumberOfStepsLabel()
         }
@@ -90,7 +90,7 @@ class CurrentWalkViewController: UIViewController {
                 if let data = pedometerData {
                     // Put the UI updates on the main thread (for no delay)
                     dispatch_async(dispatch_get_main_queue()) {
-                        self.currentWalk.numberOfSteps = data.numberOfSteps.integerValue
+                        //self.currentWalk.numberOfSteps = data.numberOfSteps.integerValue
                     }
                 } else {
                     print(error ?? "Unknown Error")
@@ -101,7 +101,7 @@ class CurrentWalkViewController: UIViewController {
     // MARK: View Updating
 
     func updateNumberOfStepsLabel() {
-        stepsLabel.text = currentWalk.numberOfSteps.description
+        //stepsLabel.text = currentWalk.numberOfSteps.description
     }
 
     // MARK: Actions
@@ -111,7 +111,7 @@ class CurrentWalkViewController: UIViewController {
     }
 
     func finishWalk() {
-        currentWalk.endDate = NSDate()
+        //currentWalk.endDate = NSDate()
         self.delegate!.currentWalkViewController(self, didFinishWithWalk: currentWalk)
     }
 }

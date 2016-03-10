@@ -8,7 +8,7 @@
 
 import UIKit
 
-class WalkCell: UICollectionViewCell {
+class ColorCell: UICollectionViewCell {
 
     var circleView: CircleView!
 

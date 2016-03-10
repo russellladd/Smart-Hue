@@ -58,7 +58,7 @@ class MyWalksViewController: UIViewController, UICollectionViewDataSource, UICol
         collectionView.dataSource = self
         collectionView.delegate = self
         collectionView.backgroundColor = UIColor.whiteColor()
-        collectionView.registerClass(WalkCell.self, forCellWithReuseIdentifier: "Walk Cell")
+        collectionView.registerClass(ColorCell.self, forCellWithReuseIdentifier: "Color Cell")
         
         view.addSubview(collectionView)
         
@@ -79,10 +79,10 @@ class MyWalksViewController: UIViewController, UICollectionViewDataSource, UICol
     }
     
     func collectionView(collectionView: UICollectionView, cellForItemAtIndexPath indexPath: NSIndexPath) -> UICollectionViewCell {
-        
-        let cell = collectionView.dequeueReusableCellWithReuseIdentifier("Walk Cell", forIndexPath: indexPath) as! WalkCell
 
-        //cell.circleView.color = UIColor.blueColor()
+        let cell = collectionView.dequeueReusableCellWithReuseIdentifier("Color Cell", forIndexPath: indexPath) as! ColorCell
+
+        cell.circleView.color = UIColor.blueColor()
 
         return cell
     }
