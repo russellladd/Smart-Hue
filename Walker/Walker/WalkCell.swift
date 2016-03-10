@@ -27,6 +27,7 @@ class WalkCell: UICollectionViewCell {
 
         stepsLabel = UILabel()
         stepsLabel.textColor = UIColor.whiteColor()
+        stepsLabel.font = UIFont.systemFontOfSize(18)
         stepsLabel.translatesAutoresizingMaskIntoConstraints = false
 
         let stepsLabelConstraints: [NSLayoutConstraint] = [

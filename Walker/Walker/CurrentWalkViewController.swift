@@ -63,7 +63,7 @@ class CurrentWalkViewController: UIViewController {
         updateNumberOfStepsLabel()
         stepsLabel.textAlignment = .Center
         stepsLabel.textColor = UIColor.whiteColor()
-        stepsLabel.font = UIFont.systemFontOfSize(22.0)
+        stepsLabel.font = UIFont.systemFontOfSize(28.0)
 
         self.view.addSubview(circleView)
         self.view.addSubview(stepsLabel)
@@ -87,6 +87,7 @@ class CurrentWalkViewController: UIViewController {
             self.pedometer.startPedometerUpdatesFromDate(NSDate(), withHandler: {
                 pedometerData, error in
                 if let data = pedometerData {
+                    // Put the UI updates on the main thread (for no delay)
                     dispatch_async(dispatch_get_main_queue()) {
                         self.currentWalk.numberOfSteps = data.numberOfSteps.integerValue
                     }
@@ -105,12 +106,10 @@ class CurrentWalkViewController: UIViewController {
     // MARK: Actions
 
     func cancelWalk() {
-        pedometer.stopPedometerUpdates()
         self.delegate!.currentWalkViewControllerDidCancel()
     }
 
     func finishWalk() {
-        pedometer.stopPedometerUpdates()
         currentWalk.endDate = NSDate()
         self.delegate!.currentWalkViewController(self, didFinishWithWalk: currentWalk)
     }

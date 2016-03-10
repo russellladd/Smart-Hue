@@ -31,9 +31,11 @@ class MyWalksViewController: UIViewController, UICollectionViewDataSource, UICol
 
         // UICollectionView layout settings
 
+        let cellSize = 80
+
         let layout = UICollectionViewFlowLayout()
         layout.sectionInset = UIEdgeInsets(top: 20, left: 10, bottom: 10, right: 10)
-        layout.itemSize = CGSize(width: 120, height: 120)
+        layout.itemSize = CGSize(width: cellSize, height: cellSize)
 
         // UICollectionView instantiation
 
