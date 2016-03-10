@@ -15,19 +15,18 @@ class CircleView: UIView {
     override init(frame: CGRect) {
         super.init(frame: frame)
 
-        commonInit()
+        updatePath()
+        updateFillColor()
     }
 
     required init?(coder aDecoder: NSCoder) {
-        super.init(coder: aDecoder)
-
-        commonInit()
+        fatalError("init(coder:) has not been implemented")
     }
-
-    func commonInit() {
-
-        updatePath()
-        updateFillColor()
+    
+    // MARK: Layer class
+    
+    override class func layerClass() -> AnyClass {
+        return CAShapeLayer.self
     }
 
     // MARK: Properties
@@ -37,12 +36,14 @@ class CircleView: UIView {
             updatePath()
         }
     }
+    
+    var color: UIColor = UIColor.blackColor() {
+        didSet {
+            updateFillColor()
+        }
+    }
 
     // MARK: Shape layer
-
-    override class func layerClass() -> AnyClass {
-        return CAShapeLayer.self
-    }
 
     private var shapeLayer: CAShapeLayer {
         return layer as! CAShapeLayer
@@ -53,6 +54,6 @@ class CircleView: UIView {
     }
 
     private func updateFillColor() {
-        shapeLayer.fillColor = tintColor?.CGColor
+        shapeLayer.fillColor = color.CGColor
     }
 }

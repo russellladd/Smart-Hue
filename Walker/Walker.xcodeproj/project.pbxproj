@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		46F9BF6D1C92398F00BACE1E /* ColorViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46F9BF6C1C92398F00BACE1E /* ColorViewController.swift */; };
 		70939F2A1C8E375900948A12 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70939F291C8E375900948A12 /* AppDelegate.swift */; };
 		70939F2C1C8E375900948A12 /* MyWalksViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70939F2B1C8E375900948A12 /* MyWalksViewController.swift */; };
 		70939F311C8E375900948A12 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 70939F301C8E375900948A12 /* Assets.xcassets */; };
@@ -18,6 +19,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		46F9BF6C1C92398F00BACE1E /* ColorViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ColorViewController.swift; sourceTree = "<group>"; };
 		70939F261C8E375900948A12 /* Walker.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Walker.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		70939F291C8E375900948A12 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		70939F2B1C8E375900948A12 /* MyWalksViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyWalksViewController.swift; sourceTree = "<group>"; };
@@ -85,6 +87,7 @@
 			children = (
 				70939F2B1C8E375900948A12 /* MyWalksViewController.swift */,
 				70939F3B1C8E37AB00948A12 /* CurrentWalkViewController.swift */,
+				46F9BF6C1C92398F00BACE1E /* ColorViewController.swift */,
 			);
 			name = "View Controller";
 			sourceTree = "<group>";
