@@ -17,4 +17,8 @@ struct Color {
     var displayColor: UIColor {
         return UIColor(hue: CGFloat(hue), saturation: CGFloat(saturation), brightness: CGFloat(brightness), alpha: 1.0)
     }
+    
+    var jsonObject: [String: AnyObject] {
+        return ["hue": hue, "saturation": saturation, "brightness": brightness]
+    }
 }
