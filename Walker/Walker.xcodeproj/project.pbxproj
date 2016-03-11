@@ -12,7 +12,6 @@
 		70939F2C1C8E375900948A12 /* MyColorsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70939F2B1C8E375900948A12 /* MyColorsViewController.swift */; };
 		70939F311C8E375900948A12 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 70939F301C8E375900948A12 /* Assets.xcassets */; };
 		70939F341C8E375900948A12 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 70939F321C8E375900948A12 /* LaunchScreen.storyboard */; };
-		70939F3C1C8E37AB00948A12 /* CurrentWalkViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70939F3B1C8E37AB00948A12 /* CurrentWalkViewController.swift */; };
 		70939F3E1C8E37CF00948A12 /* CircleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70939F3D1C8E37CF00948A12 /* CircleView.swift */; };
 		70939F401C8E37E800948A12 /* ColorCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70939F3F1C8E37E800948A12 /* ColorCell.swift */; };
 		70939F441C8E932F00948A12 /* Color.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70939F431C8E932F00948A12 /* Color.swift */; };
@@ -26,7 +25,6 @@
 		70939F301C8E375900948A12 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		70939F331C8E375900948A12 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		70939F351C8E375900948A12 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		70939F3B1C8E37AB00948A12 /* CurrentWalkViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CurrentWalkViewController.swift; sourceTree = "<group>"; };
 		70939F3D1C8E37CF00948A12 /* CircleView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CircleView.swift; sourceTree = "<group>"; };
 		70939F3F1C8E37E800948A12 /* ColorCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ColorCell.swift; sourceTree = "<group>"; };
 		70939F431C8E932F00948A12 /* Color.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Color.swift; sourceTree = "<group>"; };
@@ -86,7 +84,6 @@
 			isa = PBXGroup;
 			children = (
 				70939F2B1C8E375900948A12 /* MyColorsViewController.swift */,
-				70939F3B1C8E37AB00948A12 /* CurrentWalkViewController.swift */,
 				46F9BF6C1C92398F00BACE1E /* ColorViewController.swift */,
 			);
 			name = "View Controller";
@@ -172,7 +169,6 @@
 			files = (
 				70939F3E1C8E37CF00948A12 /* CircleView.swift in Sources */,
 				70939F2C1C8E375900948A12 /* MyColorsViewController.swift in Sources */,
-				70939F3C1C8E37AB00948A12 /* CurrentWalkViewController.swift in Sources */,
 				70939F401C8E37E800948A12 /* ColorCell.swift in Sources */,
 				46F88EF81C923E5B0016A130 /* ColorViewController.swift in Sources */,
 				70939F441C8E932F00948A12 /* Color.swift in Sources */,
