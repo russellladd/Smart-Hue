@@ -10,29 +10,47 @@ import UIKit
 
 class ColorCell: UICollectionViewCell {
 
-    var circleView: CircleView!
-
+    let circleView = CircleView()
+    let imageView = UIImageView(image: UIImage(named: "Checkmark")!)
+    
     override init(frame: CGRect) {
         super.init(frame: frame)
-        commonInit()
+        
+        circleView.translatesAutoresizingMaskIntoConstraints = false
+        imageView.translatesAutoresizingMaskIntoConstraints = false
+        
+        addSubview(circleView)
+        addSubview(imageView)
+        
+        updateImageViewHidden()
+        
+        NSLayoutConstraint.activateConstraints([
+            circleView.widthAnchor.constraintEqualToAnchor(widthAnchor),
+            circleView.centerXAnchor.constraintEqualToAnchor(centerXAnchor),
+            circleView.centerYAnchor.constraintEqualToAnchor(centerYAnchor),
+            
+            imageView.centerXAnchor.constraintEqualToAnchor(centerXAnchor),
+            imageView.centerYAnchor.constraintEqualToAnchor(centerYAnchor)
+        ])
     }
-
+    
     required init?(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
-
-    func commonInit() {
-
-        circleView = CircleView()
-        circleView.translatesAutoresizingMaskIntoConstraints = false
-
-        self.addSubview(circleView)
-
-        NSLayoutConstraint.activateConstraints([
-            circleView.widthAnchor.constraintEqualToAnchor(self.widthAnchor),
-            circleView.heightAnchor.constraintEqualToAnchor(self.heightAnchor),
-            circleView.centerXAnchor.constraintEqualToAnchor(self.centerXAnchor),
-            circleView.centerYAnchor.constraintEqualToAnchor(self.centerYAnchor)
-        ])
+    
+    override var highlighted: Bool {
+        didSet {
+            circleView.alpha = highlighted ? 0.5 : 1.0
+        }
+    }
+    
+    override var selected: Bool {
+        didSet {
+            updateImageViewHidden()
+        }
+    }
+    
+    func updateImageViewHidden() {
+        imageView.hidden = !selected
     }
 }
