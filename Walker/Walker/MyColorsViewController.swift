@@ -8,17 +8,18 @@
 
 import UIKit
 
-class MyColorsViewController: UIViewController, UICollectionViewDataSource, UICollectionViewDelegate, ColorViewControllerDelegate {
+class MyColorsViewController: UIViewController, UICollectionViewDataSource, UICollectionViewDelegate, ColorViewControllerDelegate, BeaconManagerDelegate {
     
     // MARK: Initialization
     
     override init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: NSBundle?) {
         super.init(nibName: nibNameOrNil, bundle: nibBundleOrNil)
         
-        self.title = "My Colors"
+        self.title = NSLocalizedString("New Color", comment: "MyColorsViewController title")
         
-        let addButton = UIBarButtonItem(barButtonSystemItem: .Add, target: self, action: "addColor")
-        self.navigationItem.setRightBarButtonItem(addButton, animated: false)
+        self.navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .Add, target: self, action: "addColor")
+        
+        beaconManager.delegate = self
     }
     
     required init?(coder aDecoder: NSCoder) {
@@ -32,6 +33,8 @@ class MyColorsViewController: UIViewController, UICollectionViewDataSource, UICo
     var selectedIndex: Int? {
         didSet {
             
+            // Update collection view
+            
             UIView.performWithoutAnimation {
                 
                 if let oldValue = oldValue {
@@ -42,7 +45,25 @@ class MyColorsViewController: UIViewController, UICollectionViewDataSource, UICo
                     self.collectionView.reloadItemsAtIndexPaths([NSIndexPath(forItem: selectedIndex, inSection: 0)])
                 }
             }
+            
+            // Update poster
+            
+            if let selectedIndex = selectedIndex {
+                colorPoster.color = colors[selectedIndex]
+            } else {
+                colorPoster.color = nil
+            }
         }
+    }
+    
+    let colorPoster = ColorPoster()
+    
+    // MARK: Beacon manager
+    
+    let beaconManager = BeaconManager()
+    
+    func beaconManager(beaconManager: BeaconManager, didChangeRoom room: Int?) {
+        colorPoster.room = room
     }
     
     // MARK: View

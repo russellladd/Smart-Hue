@@ -10,27 +10,30 @@ import UIKit
 
 class ColorPoster {
     
-    var color: Color? {
-        didSet {
-            
-            timer?.invalidate()
-            timer = nil
-            
-            if color != nil {
-                
-                timer = NSTimer.scheduledTimerWithTimeInterval(1.0, target: self, selector: "post:", userInfo: nil, repeats: true)
-                post(timer!)
-            }
-        }
+    // MARK: Initialization
+    
+    init() {
+        timer = NSTimer.scheduledTimerWithTimeInterval(1.0, target: self, selector: "post:", userInfo: nil, repeats: true)
     }
     
-    private var timer: NSTimer?
+    deinit {
+        timer.invalidate()
+    }
+    
+    // MARK: Properties
+    
+    var room: Int?
+    var color: Color?
+    
+    // MARK: Timer
+    
+    private var timer: NSTimer!
     
     private let session = NSURLSession.sharedSession()
     
     @objc func post(timer: NSTimer) {
         
-        guard let color = color, let deviceID = UIDevice.currentDevice().identifierForVendor else {
+        guard let room = room, let color = color, let deviceID = UIDevice.currentDevice().identifierForVendor else {
             return
         }
         
@@ -40,6 +43,7 @@ class ColorPoster {
         request.HTTPMethod = "POST"
         
         var jsonObject = color.jsonObject
+        jsonObject["room"] = room
         jsonObject["deviceID"] = deviceID.UUIDString
         
         request.setValue("application/json", forHTTPHeaderField: "Content-Type")
@@ -49,9 +53,12 @@ class ColorPoster {
         
         let task = session.dataTaskWithRequest(request) { data, response, error in
             
-            if let data = data, let json = try? NSJSONSerialization.JSONObjectWithData(data, options: []) {
-                print(json)
-            } else {
+            guard let response = response as? NSHTTPURLResponse else {
+                print(error)
+                return
+            }
+            
+            if response.statusCode != 200 {
                 print(response)
             }
         }
