@@ -112,22 +112,6 @@ class MyColorsViewController: UIViewController, UICollectionViewDataSource, UICo
         }
     }
     
-    func collectionView(collectionView: UICollectionView, shouldShowMenuForItemAtIndexPath indexPath: NSIndexPath) -> Bool {
-        print("Should show")
-        return true
-    }
-    
-    func collectionView(collectionView: UICollectionView, canPerformAction action: Selector, forItemAtIndexPath indexPath: NSIndexPath, withSender sender: AnyObject?) -> Bool {
-        return true // action == "delete:"
-    }
-    
-    func collectionView(collectionView: UICollectionView, performAction action: Selector, forItemAtIndexPath indexPath: NSIndexPath, withSender sender: AnyObject?) {
-        
-        if action == "delete:" {
-            print("Delete")
-        }
-    }
-    
     // MARK: Actions
     
     func addColor() {
