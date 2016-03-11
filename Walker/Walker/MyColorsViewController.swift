@@ -8,7 +8,7 @@
 
 import UIKit
 
-class MyWalksViewController: UIViewController, UICollectionViewDataSource, UICollectionViewDelegate, ColorViewControllerDelegate {
+class MyColorsViewController: UIViewController, UICollectionViewDataSource, UICollectionViewDelegate, ColorViewControllerDelegate {
     
     // MARK: Initialization
     
@@ -17,7 +17,7 @@ class MyWalksViewController: UIViewController, UICollectionViewDataSource, UICol
         
         self.title = "My Colors"
         
-        let addButton = UIBarButtonItem(barButtonSystemItem: .Add, target: self, action: "startWalk")
+        let addButton = UIBarButtonItem(barButtonSystemItem: .Add, target: self, action: "addColor")
         self.navigationItem.setRightBarButtonItem(addButton, animated: false)
     }
     
@@ -89,7 +89,7 @@ class MyWalksViewController: UIViewController, UICollectionViewDataSource, UICol
     
     // MARK: Actions
     
-    func startWalk() {
+    func addColor() {
         
         let addColorViewController = ColorViewController()
         addColorViewController.delegate = self
@@ -109,10 +109,6 @@ class MyWalksViewController: UIViewController, UICollectionViewDataSource, UICol
         
         colors.append(color)
         
-        dismissViewControllerAnimated(true, completion: nil)
-    }
-    
-    func currentWalkViewControllerDidCancel() {
         dismissViewControllerAnimated(true, completion: nil)
     }
 }
