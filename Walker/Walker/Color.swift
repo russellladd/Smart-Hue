@@ -9,7 +9,12 @@
 import UIKit
 
 struct Color {
-    var brightness = 1.0
+    
     var hue = 0.0
     var saturation = 1.0
+    var brightness = 1.0
+    
+    var displayColor: UIColor {
+        return UIColor(hue: CGFloat(hue), saturation: CGFloat(saturation), brightness: CGFloat(brightness), alpha: 1.0)
+    }
 }

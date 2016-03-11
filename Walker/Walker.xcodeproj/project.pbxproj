@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		46F88EF81C923E5B0016A130 /* ColorViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46F9BF6C1C92398F00BACE1E /* ColorViewController.swift */; };
 		70939F2A1C8E375900948A12 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70939F291C8E375900948A12 /* AppDelegate.swift */; };
 		70939F2C1C8E375900948A12 /* MyWalksViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70939F2B1C8E375900948A12 /* MyWalksViewController.swift */; };
 		70939F311C8E375900948A12 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 70939F301C8E375900948A12 /* Assets.xcassets */; };
@@ -173,6 +174,7 @@
 				70939F2C1C8E375900948A12 /* MyWalksViewController.swift in Sources */,
 				70939F3C1C8E37AB00948A12 /* CurrentWalkViewController.swift in Sources */,
 				70939F401C8E37E800948A12 /* ColorCell.swift in Sources */,
+				46F88EF81C923E5B0016A130 /* ColorViewController.swift in Sources */,
 				70939F441C8E932F00948A12 /* Color.swift in Sources */,
 				70939F2A1C8E375900948A12 /* AppDelegate.swift in Sources */,
 			);

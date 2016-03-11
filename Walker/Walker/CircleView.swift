@@ -17,6 +17,10 @@ class CircleView: UIView {
 
         updatePath()
         updateFillColor()
+        
+        NSLayoutConstraint.activateConstraints([
+            widthAnchor.constraintEqualToAnchor(heightAnchor)
+        ])
     }
 
     required init?(coder aDecoder: NSCoder) {

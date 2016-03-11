@@ -8,7 +8,7 @@
 
 import UIKit
 
-class MyWalksViewController: UIViewController, UICollectionViewDataSource, UICollectionViewDelegate, CurrentWalkViewControllerDelegate {
+class MyWalksViewController: UIViewController, UICollectionViewDataSource, UICollectionViewDelegate, ColorViewControllerDelegate {
     
     // MARK: Initialization
     
@@ -82,7 +82,7 @@ class MyWalksViewController: UIViewController, UICollectionViewDataSource, UICol
 
         let cell = collectionView.dequeueReusableCellWithReuseIdentifier("Color Cell", forIndexPath: indexPath) as! ColorCell
 
-        cell.circleView.color = UIColor.blueColor()
+        cell.circleView.color = colors[indexPath.item].displayColor
 
         return cell
     }
@@ -91,25 +91,28 @@ class MyWalksViewController: UIViewController, UICollectionViewDataSource, UICol
     
     func startWalk() {
         
-        let currentWalkViewController = CurrentWalkViewController()
-        currentWalkViewController.delegate = self
+        let addColorViewController = ColorViewController()
+        addColorViewController.delegate = self
         
-        let currentWalkNavigationController = UINavigationController(rootViewController: currentWalkViewController)
+        let addColorNavigationController = UINavigationController(rootViewController: addColorViewController)
         
-        presentViewController(currentWalkNavigationController, animated: true, completion: nil)
+        presentViewController(addColorNavigationController, animated: true, completion: nil)
     }
     
-    // MARK: Current walk view controller delegate
+    // MARK: Color view controller delegate
+    
+    func colorViewControllerDidCancel(colorViewController: ColorViewController) {
+        dismissViewControllerAnimated(true, completion: nil)
+    }
+    
+    func colorViewControllerDidFinish(colorViewController: ColorViewController, withColor color: Color) {
+        
+        colors.append(color)
+        
+        dismissViewControllerAnimated(true, completion: nil)
+    }
     
     func currentWalkViewControllerDidCancel() {
         dismissViewControllerAnimated(true, completion: nil)
     }
-    
-    func currentWalkViewController(currentWalkViewController: CurrentWalkViewController, didFinishWithWalk walk: Color) {
-        
-        colors.append(walk)
-        
-        dismissViewControllerAnimated(true, completion: nil)
-    }
-    
 }
