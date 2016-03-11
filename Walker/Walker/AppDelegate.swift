@@ -16,7 +16,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func application(application: UIApplication, willFinishLaunchingWithOptions launchOptions: [NSObject : AnyObject]?) -> Bool {
         
         let window = UIWindow(frame: UIScreen.mainScreen().bounds)
-        let navigationController = UINavigationController(rootViewController: MyWalksViewController())
+        let navigationController = UINavigationController(rootViewController: MyColorsViewController())
         window.rootViewController = navigationController
         
         self.window = window

@@ -27,9 +27,21 @@ class MyColorsViewController: UIViewController, UICollectionViewDataSource, UICo
     
     // MARK: Model
     
-    var colors = [Color]() {
+    var colors = [Color]()
+    
+    var selectedIndex: Int? {
         didSet {
-            collectionView?.reloadData()
+            
+            UIView.performWithoutAnimation {
+                
+                if let oldValue = oldValue {
+                    self.collectionView.reloadItemsAtIndexPaths([NSIndexPath(forItem: oldValue, inSection: 0)])
+                }
+                
+                if let selectedIndex = self.selectedIndex {
+                    self.collectionView.reloadItemsAtIndexPaths([NSIndexPath(forItem: selectedIndex, inSection: 0)])
+                }
+            }
         }
     }
     
@@ -57,6 +69,7 @@ class MyColorsViewController: UIViewController, UICollectionViewDataSource, UICo
         collectionView.translatesAutoresizingMaskIntoConstraints = false
         collectionView.dataSource = self
         collectionView.delegate = self
+        collectionView.alwaysBounceVertical = true
         collectionView.backgroundColor = UIColor.whiteColor()
         collectionView.registerClass(ColorCell.self, forCellWithReuseIdentifier: "Color Cell")
         
@@ -83,8 +96,36 @@ class MyColorsViewController: UIViewController, UICollectionViewDataSource, UICo
         let cell = collectionView.dequeueReusableCellWithReuseIdentifier("Color Cell", forIndexPath: indexPath) as! ColorCell
 
         cell.circleView.color = colors[indexPath.item].displayColor
+        cell.imageView.hidden = (indexPath.item != selectedIndex)
 
         return cell
+    }
+    
+    func collectionView(collectionView: UICollectionView, didSelectItemAtIndexPath indexPath: NSIndexPath) {
+        
+        collectionView.deselectItemAtIndexPath(indexPath, animated: true)
+        
+        if selectedIndex == indexPath.item {
+            selectedIndex = nil
+        } else {
+            selectedIndex = indexPath.item
+        }
+    }
+    
+    func collectionView(collectionView: UICollectionView, shouldShowMenuForItemAtIndexPath indexPath: NSIndexPath) -> Bool {
+        print("Should show")
+        return true
+    }
+    
+    func collectionView(collectionView: UICollectionView, canPerformAction action: Selector, forItemAtIndexPath indexPath: NSIndexPath, withSender sender: AnyObject?) -> Bool {
+        return true // action == "delete:"
+    }
+    
+    func collectionView(collectionView: UICollectionView, performAction action: Selector, forItemAtIndexPath indexPath: NSIndexPath, withSender sender: AnyObject?) {
+        
+        if action == "delete:" {
+            print("Delete")
+        }
     }
     
     // MARK: Actions
@@ -108,6 +149,10 @@ class MyColorsViewController: UIViewController, UICollectionViewDataSource, UICo
     func colorViewControllerDidFinish(colorViewController: ColorViewController, withColor color: Color) {
         
         colors.append(color)
+        
+        collectionView.performBatchUpdates({
+            self.collectionView.insertItemsAtIndexPaths([NSIndexPath(forItem: self.colors.count - 1, inSection: 0)])
+        }, completion: nil)
         
         dismissViewControllerAnimated(true, completion: nil)
     }

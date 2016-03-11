@@ -22,8 +22,6 @@ class ColorCell: UICollectionViewCell {
         addSubview(circleView)
         addSubview(imageView)
         
-        updateImageViewHidden()
-        
         NSLayoutConstraint.activateConstraints([
             circleView.widthAnchor.constraintEqualToAnchor(widthAnchor),
             circleView.centerXAnchor.constraintEqualToAnchor(centerXAnchor),
@@ -42,15 +40,5 @@ class ColorCell: UICollectionViewCell {
         didSet {
             circleView.alpha = highlighted ? 0.5 : 1.0
         }
-    }
-    
-    override var selected: Bool {
-        didSet {
-            updateImageViewHidden()
-        }
-    }
-    
-    func updateImageViewHidden() {
-        imageView.hidden = !selected
     }
 }
