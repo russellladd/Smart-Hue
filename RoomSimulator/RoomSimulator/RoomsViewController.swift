@@ -38,6 +38,10 @@ class RoomsViewController: UIViewController {
         }
     }
     
+    // MARK: Bridge server
+    
+    let bridgeServer = BridgeServer()
+    
     // MARK: View
     
     var broadcastingSwitch: UISwitch!

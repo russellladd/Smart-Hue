@@ -1,5 +1,5 @@
 //
-//  ViewController.swift
+//  ColorsViewController.swift
 //  Walker
 //
 //  Created by Connor Krupp on 07/03/2016.
@@ -8,14 +8,14 @@
 
 import UIKit
 
-class MyColorsViewController: UIViewController, UICollectionViewDataSource, UICollectionViewDelegate, ColorViewControllerDelegate, BeaconManagerDelegate {
+class ColorsViewController: UIViewController, UICollectionViewDataSource, UICollectionViewDelegate, ColorViewControllerDelegate, BeaconManagerDelegate {
     
     // MARK: Initialization
     
     override init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: NSBundle?) {
         super.init(nibName: nibNameOrNil, bundle: nibBundleOrNil)
         
-        title = NSLocalizedString("New Color", comment: "MyColorsViewController title")
+        title = NSLocalizedString("New Color", comment: "ColorsViewController title")
         
         navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .Add, target: self, action: "addColor")
         
@@ -49,21 +49,21 @@ class MyColorsViewController: UIViewController, UICollectionViewDataSource, UICo
             // Update poster
             
             if let selectedIndex = selectedIndex {
-                colorPoster.color = colors[selectedIndex]
+                colorServer.color = colors[selectedIndex]
             } else {
-                colorPoster.color = nil
+                colorServer.color = nil
             }
         }
     }
     
-    let colorPoster = ColorPoster()
+    let colorServer = ColorServer()
     
     // MARK: Beacon manager
     
     let beaconManager = BeaconManager()
     
     func beaconManager(beaconManager: BeaconManager, didChangeRoom room: Int?) {
-        colorPoster.room = room
+        colorServer.room = room
     }
     
     // MARK: View

@@ -1,5 +1,5 @@
 //
-//  ColorPoster.swift
+//  ColorServer.swift
 //  Walker
 //
 //  Created by Russell Ladd on 3/11/16.
@@ -8,12 +8,12 @@
 
 import UIKit
 
-class ColorPoster {
+class ColorServer {
     
     // MARK: Initialization
     
     init() {
-        timer = NSTimer.scheduledTimerWithTimeInterval(1.0, target: self, selector: "post:", userInfo: nil, repeats: true)
+        timer = NSTimer.scheduledTimerWithTimeInterval(1.0, target: self, selector: "put:", userInfo: nil, repeats: true)
     }
     
     deinit {
@@ -31,16 +31,17 @@ class ColorPoster {
     
     private let session = NSURLSession.sharedSession()
     
-    @objc func post(timer: NSTimer) {
+    @objc func put(timer: NSTimer) {
         
         guard let room = room, let color = color, let deviceID = UIDevice.currentDevice().identifierForVendor else {
             return
         }
         
-        let url = NSURL(string: "http://crowd-hue-server.herokuapp.com/api/color")!
+        //let url = NSURL(string: "http://crowd-hue-server.herokuapp.com/api/color")!
+        let url = NSURL(string: "http://192.168.86.111:3000/api/color")!
         
         let request = NSMutableURLRequest(URL: url)
-        request.HTTPMethod = "POST"
+        request.HTTPMethod = "PUT"
         
         var jsonObject = color.jsonObject
         jsonObject["room"] = room

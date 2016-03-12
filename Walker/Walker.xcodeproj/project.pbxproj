@@ -9,9 +9,9 @@
 /* Begin PBXBuildFile section */
 		460C35F61C929D6D00CC35F1 /* BeaconManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 460C35F51C929D6D00CC35F1 /* BeaconManager.swift */; };
 		46F88EF81C923E5B0016A130 /* ColorViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46F9BF6C1C92398F00BACE1E /* ColorViewController.swift */; };
-		46F88EFA1C9295560016A130 /* ColorPoster.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46F88EF91C9295560016A130 /* ColorPoster.swift */; };
+		46F88EFA1C9295560016A130 /* ColorServer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46F88EF91C9295560016A130 /* ColorServer.swift */; };
 		70939F2A1C8E375900948A12 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70939F291C8E375900948A12 /* AppDelegate.swift */; };
-		70939F2C1C8E375900948A12 /* MyColorsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70939F2B1C8E375900948A12 /* MyColorsViewController.swift */; };
+		70939F2C1C8E375900948A12 /* ColorsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70939F2B1C8E375900948A12 /* ColorsViewController.swift */; };
 		70939F311C8E375900948A12 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 70939F301C8E375900948A12 /* Assets.xcassets */; };
 		70939F341C8E375900948A12 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 70939F321C8E375900948A12 /* LaunchScreen.storyboard */; };
 		70939F3E1C8E37CF00948A12 /* CircleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70939F3D1C8E37CF00948A12 /* CircleView.swift */; };
@@ -21,11 +21,11 @@
 
 /* Begin PBXFileReference section */
 		460C35F51C929D6D00CC35F1 /* BeaconManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BeaconManager.swift; sourceTree = "<group>"; };
-		46F88EF91C9295560016A130 /* ColorPoster.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ColorPoster.swift; sourceTree = "<group>"; };
+		46F88EF91C9295560016A130 /* ColorServer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ColorServer.swift; sourceTree = "<group>"; };
 		46F9BF6C1C92398F00BACE1E /* ColorViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ColorViewController.swift; sourceTree = "<group>"; };
 		70939F261C8E375900948A12 /* Walker.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Walker.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		70939F291C8E375900948A12 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		70939F2B1C8E375900948A12 /* MyColorsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyColorsViewController.swift; sourceTree = "<group>"; };
+		70939F2B1C8E375900948A12 /* ColorsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorsViewController.swift; sourceTree = "<group>"; };
 		70939F301C8E375900948A12 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		70939F331C8E375900948A12 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		70939F351C8E375900948A12 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -87,7 +87,7 @@
 		70939F421C8E931C00948A12 /* View Controller */ = {
 			isa = PBXGroup;
 			children = (
-				70939F2B1C8E375900948A12 /* MyColorsViewController.swift */,
+				70939F2B1C8E375900948A12 /* ColorsViewController.swift */,
 				46F9BF6C1C92398F00BACE1E /* ColorViewController.swift */,
 			);
 			name = "View Controller";
@@ -97,7 +97,7 @@
 			isa = PBXGroup;
 			children = (
 				70939F431C8E932F00948A12 /* Color.swift */,
-				46F88EF91C9295560016A130 /* ColorPoster.swift */,
+				46F88EF91C9295560016A130 /* ColorServer.swift */,
 				460C35F51C929D6D00CC35F1 /* BeaconManager.swift */,
 			);
 			name = Model;
@@ -175,10 +175,10 @@
 			files = (
 				70939F3E1C8E37CF00948A12 /* CircleView.swift in Sources */,
 				460C35F61C929D6D00CC35F1 /* BeaconManager.swift in Sources */,
-				70939F2C1C8E375900948A12 /* MyColorsViewController.swift in Sources */,
+				70939F2C1C8E375900948A12 /* ColorsViewController.swift in Sources */,
 				70939F401C8E37E800948A12 /* ColorCell.swift in Sources */,
 				46F88EF81C923E5B0016A130 /* ColorViewController.swift in Sources */,
-				46F88EFA1C9295560016A130 /* ColorPoster.swift in Sources */,
+				46F88EFA1C9295560016A130 /* ColorServer.swift in Sources */,
 				70939F441C8E932F00948A12 /* Color.swift in Sources */,
 				70939F2A1C8E375900948A12 /* AppDelegate.swift in Sources */,
 			);

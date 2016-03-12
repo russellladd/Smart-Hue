@@ -11,6 +11,7 @@
 		460C360B1C92ABAA00CC35F1 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 460C360A1C92ABAA00CC35F1 /* Assets.xcassets */; };
 		460C360E1C92ABAA00CC35F1 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 460C360C1C92ABAA00CC35F1 /* LaunchScreen.storyboard */; };
 		460C36151C939B4A00CC35F1 /* RoomsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 460C36051C92ABAA00CC35F1 /* RoomsViewController.swift */; };
+		460C36171C93DA9F00CC35F1 /* BridgeServer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 460C36161C93DA9F00CC35F1 /* BridgeServer.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -20,6 +21,7 @@
 		460C360A1C92ABAA00CC35F1 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		460C360D1C92ABAA00CC35F1 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		460C360F1C92ABAA00CC35F1 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		460C36161C93DA9F00CC35F1 /* BridgeServer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BridgeServer.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -54,6 +56,7 @@
 			children = (
 				460C36031C92ABAA00CC35F1 /* AppDelegate.swift */,
 				460C36051C92ABAA00CC35F1 /* RoomsViewController.swift */,
+				460C36161C93DA9F00CC35F1 /* BridgeServer.swift */,
 				460C360A1C92ABAA00CC35F1 /* Assets.xcassets */,
 				460C360C1C92ABAA00CC35F1 /* LaunchScreen.storyboard */,
 				460C360F1C92ABAA00CC35F1 /* Info.plist */,
@@ -133,6 +136,7 @@
 			files = (
 				460C36041C92ABAA00CC35F1 /* AppDelegate.swift in Sources */,
 				460C36151C939B4A00CC35F1 /* RoomsViewController.swift in Sources */,
+				460C36171C93DA9F00CC35F1 /* BridgeServer.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
