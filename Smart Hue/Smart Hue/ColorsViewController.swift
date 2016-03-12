@@ -15,7 +15,7 @@ class ColorsViewController: UIViewController, UICollectionViewDataSource, UIColl
     override init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: NSBundle?) {
         super.init(nibName: nibNameOrNil, bundle: nibBundleOrNil)
         
-        title = NSLocalizedString("New Color", comment: "ColorsViewController title")
+        title = NSLocalizedString("My Colors", comment: "ColorsViewController title")
         
         navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .Add, target: self, action: "addColor")
         
@@ -82,7 +82,7 @@ class ColorsViewController: UIViewController, UICollectionViewDataSource, UIColl
         
         let layout = UICollectionViewFlowLayout()
         layout.sectionInset = UIEdgeInsets(top: 15.0, left: 15.0, bottom: 15.0, right: 15.0)
-        layout.itemSize = CGSize(width: 60.0, height: 60.0)
+        layout.itemSize = CGSize(width: 120.0, height: 120.0)
         
         // Create collection view
         
