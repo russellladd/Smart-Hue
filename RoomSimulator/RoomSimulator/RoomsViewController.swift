@@ -1,5 +1,5 @@
 //
-//  ViewController.swift
+//  RoomsViewController.swift
 //  RoomSimulator
 //
 //  Created by Russell Ladd on 3/11/16.
@@ -11,7 +11,34 @@ import UIKit
 import CoreLocation
 import CoreBluetooth
 
-class ViewController: UIViewController {
+class RoomsViewController: UIViewController {
+    
+    // MARK: Peripheral manager
+    
+    let peripheralManager = CBPeripheralManager()
+    
+    func beaconRegionForRoom(room: Int) -> CLBeaconRegion {
+        
+        return CLBeaconRegion(proximityUUID: NSUUID(UUIDString: "41EF49E6-2CD2-4F0C-A96A-2C23AD612746")!, major: UInt16(room), minor: 0, identifier: "rooms")
+    }
+    
+    // MARK: Model
+    
+    var currentRoom: Int? {
+        didSet {
+            
+            if oldValue != nil {
+                peripheralManager.stopAdvertising()
+            }
+            
+            if let currentRoom = currentRoom {
+                let beaconPeripheralData = beaconRegionForRoom(currentRoom).peripheralDataWithMeasuredPower(nil)
+                peripheralManager.startAdvertising(beaconPeripheralData.copy() as? [String: AnyObject])
+            }
+        }
+    }
+    
+    // MARK: View
     
     var broadcastingSwitch: UISwitch!
     var roomSegmentedControl: UISegmentedControl!
@@ -53,13 +80,21 @@ class ViewController: UIViewController {
         ])
     }
     
+    // MARK: Actions
+    
     func broadcastSwitchValueChanged() {
         
         roomSegmentedControl.enabled = broadcastingSwitch.on
+        
+        updateCurrentRoom()
     }
     
     func roomSegmentedControlValueChanged() {
         
-        
+        updateCurrentRoom()
+    }
+    
+    func updateCurrentRoom() {
+        currentRoom = broadcastingSwitch.on ? roomSegmentedControl.selectedSegmentIndex : nil
     }
 }

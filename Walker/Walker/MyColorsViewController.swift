@@ -15,9 +15,9 @@ class MyColorsViewController: UIViewController, UICollectionViewDataSource, UICo
     override init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: NSBundle?) {
         super.init(nibName: nibNameOrNil, bundle: nibBundleOrNil)
         
-        self.title = NSLocalizedString("New Color", comment: "MyColorsViewController title")
+        title = NSLocalizedString("New Color", comment: "MyColorsViewController title")
         
-        self.navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .Add, target: self, action: "addColor")
+        navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .Add, target: self, action: "addColor")
         
         beaconManager.delegate = self
     }

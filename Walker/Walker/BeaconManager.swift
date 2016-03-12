@@ -35,7 +35,9 @@ class BeaconManager: NSObject, CLLocationManagerDelegate {
     
     private(set) var currentRoom: Int? {
         didSet {
-            delegate?.beaconManager(self, didChangeRoom: currentRoom)
+            if currentRoom != oldValue {
+                delegate?.beaconManager(self, didChangeRoom: currentRoom)
+            }
         }
     }
     
@@ -43,19 +45,11 @@ class BeaconManager: NSObject, CLLocationManagerDelegate {
         
         if let beacon = beacons.first where beacon.proximity != .Unknown {
             
-            // We have a close a beacon
-            
-            if currentRoom != beacon.major {
-                currentRoom = beacon.major as Int
-            }
+            currentRoom = beacon.major as Int
             
         } else {
             
-            // No close beacon
-            
-            if currentRoom != nil {
-                currentRoom = nil
-            }
+            currentRoom = nil
         }
     }
 }

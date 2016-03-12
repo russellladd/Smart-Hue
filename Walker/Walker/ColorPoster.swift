@@ -37,7 +37,7 @@ class ColorPoster {
             return
         }
         
-        let url = NSURL(string: "http://NAME.herokuapp.com")!
+        let url = NSURL(string: "http://crowd-hue-server.herokuapp.com/api/color")!
         
         let request = NSMutableURLRequest(URL: url)
         request.HTTPMethod = "POST"
