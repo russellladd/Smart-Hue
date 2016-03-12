@@ -31,12 +31,12 @@ class BridgeServer {
     @objc func put(timer: NSTimer) {
         
         if let task = currentTask {
-            task.cancel()
+            //task.cancel()
             currentTask = nil
         }
         
-        //let url = NSURL(string: "http://crowd-hue-server.herokuapp.com/api/bridge")!
-        let url = NSURL(string: "http://192.168.86.111:3000/api/bridge")!
+        let url = NSURL(string: "http://crowd-hue-server.herokuapp.com/api/bridge")!
+        //let url = NSURL(string: "http://192.168.86.111:3000/api/bridge")!
         
         let request = NSMutableURLRequest(URL: url)
         request.HTTPMethod = "PUT"
