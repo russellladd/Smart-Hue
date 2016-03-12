@@ -1,0 +1,323 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		46158F361C94244A00C5003C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46158F2D1C94244A00C5003C /* AppDelegate.swift */; };
+		46158F371C94244A00C5003C /* CircleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46158F2E1C94244A00C5003C /* CircleView.swift */; };
+		46158F381C94244A00C5003C /* Color.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46158F2F1C94244A00C5003C /* Color.swift */; };
+		46158F391C94244A00C5003C /* ColorCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46158F301C94244A00C5003C /* ColorCell.swift */; };
+		46158F3A1C94244A00C5003C /* ColorServer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46158F311C94244A00C5003C /* ColorServer.swift */; };
+		46158F3B1C94244A00C5003C /* ColorsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46158F321C94244A00C5003C /* ColorsViewController.swift */; };
+		46158F3C1C94244A00C5003C /* ColorViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46158F331C94244A00C5003C /* ColorViewController.swift */; };
+		46158F3E1C94244A00C5003C /* RoomDetector.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46158F351C94244A00C5003C /* RoomDetector.swift */; };
+		46158F431C9424E200C5003C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 46158F421C9424E200C5003C /* Assets.xcassets */; };
+		46158F451C9425F700C5003C /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 46158F441C9425F700C5003C /* LaunchScreen.storyboard */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		46158F181C94241400C5003C /* Smart Hue.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Smart Hue.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		46158F2D1C94244A00C5003C /* AppDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		46158F2E1C94244A00C5003C /* CircleView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CircleView.swift; sourceTree = "<group>"; };
+		46158F2F1C94244A00C5003C /* Color.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Color.swift; sourceTree = "<group>"; };
+		46158F301C94244A00C5003C /* ColorCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ColorCell.swift; sourceTree = "<group>"; };
+		46158F311C94244A00C5003C /* ColorServer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ColorServer.swift; sourceTree = "<group>"; };
+		46158F321C94244A00C5003C /* ColorsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ColorsViewController.swift; sourceTree = "<group>"; };
+		46158F331C94244A00C5003C /* ColorViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ColorViewController.swift; sourceTree = "<group>"; };
+		46158F341C94244A00C5003C /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		46158F351C94244A00C5003C /* RoomDetector.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RoomDetector.swift; sourceTree = "<group>"; };
+		46158F421C9424E200C5003C /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		46158F441C9425F700C5003C /* LaunchScreen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = LaunchScreen.storyboard; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		46158F151C94241400C5003C /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		46158F0F1C94241400C5003C = {
+			isa = PBXGroup;
+			children = (
+				46158F1A1C94241400C5003C /* Smart Hue */,
+				46158F191C94241400C5003C /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		46158F191C94241400C5003C /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				46158F181C94241400C5003C /* Smart Hue.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		46158F1A1C94241400C5003C /* Smart Hue */ = {
+			isa = PBXGroup;
+			children = (
+				46158F2D1C94244A00C5003C /* AppDelegate.swift */,
+				46158F401C94246300C5003C /* Model */,
+				46158F3F1C94245600C5003C /* View */,
+				46158F411C94246C00C5003C /* Controller */,
+				46158F341C94244A00C5003C /* Info.plist */,
+				46158F421C9424E200C5003C /* Assets.xcassets */,
+				46158F441C9425F700C5003C /* LaunchScreen.storyboard */,
+			);
+			path = "Smart Hue";
+			sourceTree = "<group>";
+		};
+		46158F3F1C94245600C5003C /* View */ = {
+			isa = PBXGroup;
+			children = (
+				46158F2E1C94244A00C5003C /* CircleView.swift */,
+				46158F301C94244A00C5003C /* ColorCell.swift */,
+			);
+			name = View;
+			sourceTree = "<group>";
+		};
+		46158F401C94246300C5003C /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				46158F2F1C94244A00C5003C /* Color.swift */,
+				46158F311C94244A00C5003C /* ColorServer.swift */,
+				46158F351C94244A00C5003C /* RoomDetector.swift */,
+			);
+			name = Model;
+			sourceTree = "<group>";
+		};
+		46158F411C94246C00C5003C /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				46158F321C94244A00C5003C /* ColorsViewController.swift */,
+				46158F331C94244A00C5003C /* ColorViewController.swift */,
+			);
+			name = Controller;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		46158F171C94241400C5003C /* Smart Hue */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 46158F2A1C94241400C5003C /* Build configuration list for PBXNativeTarget "Smart Hue" */;
+			buildPhases = (
+				46158F141C94241400C5003C /* Sources */,
+				46158F151C94241400C5003C /* Frameworks */,
+				46158F161C94241400C5003C /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "Smart Hue";
+			productName = "Smart Hue";
+			productReference = 46158F181C94241400C5003C /* Smart Hue.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		46158F101C94241400C5003C /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 0720;
+				LastUpgradeCheck = 0720;
+				ORGANIZATIONNAME = "Michigan Hackers";
+				TargetAttributes = {
+					46158F171C94241400C5003C = {
+						CreatedOnToolsVersion = 7.2.1;
+					};
+				};
+			};
+			buildConfigurationList = 46158F131C94241400C5003C /* Build configuration list for PBXProject "Smart Hue" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 46158F0F1C94241400C5003C;
+			productRefGroup = 46158F191C94241400C5003C /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				46158F171C94241400C5003C /* Smart Hue */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		46158F161C94241400C5003C /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				46158F451C9425F700C5003C /* LaunchScreen.storyboard in Resources */,
+				46158F431C9424E200C5003C /* Assets.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		46158F141C94241400C5003C /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				46158F3A1C94244A00C5003C /* ColorServer.swift in Sources */,
+				46158F371C94244A00C5003C /* CircleView.swift in Sources */,
+				46158F391C94244A00C5003C /* ColorCell.swift in Sources */,
+				46158F361C94244A00C5003C /* AppDelegate.swift in Sources */,
+				46158F3E1C94244A00C5003C /* RoomDetector.swift in Sources */,
+				46158F3C1C94244A00C5003C /* ColorViewController.swift in Sources */,
+				46158F3B1C94244A00C5003C /* ColorsViewController.swift in Sources */,
+				46158F381C94244A00C5003C /* Color.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin XCBuildConfiguration section */
+		46158F281C94241400C5003C /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.2;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		46158F291C94241400C5003C /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.2;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		46158F2B1C94241400C5003C /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
+				INFOPLIST_FILE = "Smart Hue/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.michiganhackers.Smart-Hue";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				TARGETED_DEVICE_FAMILY = 1;
+			};
+			name = Debug;
+		};
+		46158F2C1C94241400C5003C /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
+				INFOPLIST_FILE = "Smart Hue/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.michiganhackers.Smart-Hue";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = 1;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		46158F131C94241400C5003C /* Build configuration list for PBXProject "Smart Hue" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				46158F281C94241400C5003C /* Debug */,
+				46158F291C94241400C5003C /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		46158F2A1C94241400C5003C /* Build configuration list for PBXNativeTarget "Smart Hue" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				46158F2B1C94241400C5003C /* Debug */,
+				46158F2C1C94241400C5003C /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 46158F101C94241400C5003C /* Project object */;
+}
