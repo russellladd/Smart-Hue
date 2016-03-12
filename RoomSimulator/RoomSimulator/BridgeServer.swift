@@ -26,7 +26,14 @@ class BridgeServer {
     
     private let session = NSURLSession.sharedSession()
     
+    var currentTask: NSURLSessionDataTask?
+    
     @objc func put(timer: NSTimer) {
+        
+        if let task = currentTask {
+            task.cancel()
+            currentTask = nil
+        }
         
         //let url = NSURL(string: "http://crowd-hue-server.herokuapp.com/api/bridge")!
         let url = NSURL(string: "http://192.168.86.111:3000/api/bridge")!
@@ -47,5 +54,7 @@ class BridgeServer {
         }
         
         task.resume()
+        
+        currentTask = task
     }
 }

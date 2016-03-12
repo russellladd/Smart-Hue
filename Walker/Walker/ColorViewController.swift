@@ -84,12 +84,14 @@ class ColorViewController: UIViewController {
         // Add constraints
         
         NSLayoutConstraint.activateConstraints([
+            contentLayoutGuide.leadingAnchor.constraintEqualToAnchor(view.leadingAnchor),
+            contentLayoutGuide.trailingAnchor.constraintEqualToAnchor(view.trailingAnchor),
             contentLayoutGuide.topAnchor.constraintEqualToAnchor(topLayoutGuide.bottomAnchor),
             contentLayoutGuide.bottomAnchor.constraintEqualToAnchor(bottomLayoutGuide.topAnchor),
             
-            containerStackView.centerXAnchor.constraintEqualToAnchor(view.centerXAnchor),
+            containerStackView.centerXAnchor.constraintEqualToAnchor(contentLayoutGuide.centerXAnchor),
             containerStackView.centerYAnchor.constraintEqualToAnchor(contentLayoutGuide.centerYAnchor),
-            containerStackView.widthAnchor.constraintEqualToAnchor(view.widthAnchor, multiplier: 0.8)
+            containerStackView.widthAnchor.constraintEqualToAnchor(contentLayoutGuide.widthAnchor, multiplier: 0.8)
         ])
         
         // Update views

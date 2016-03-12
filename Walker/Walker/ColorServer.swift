@@ -37,8 +37,7 @@ class ColorServer {
             return
         }
         
-        //let url = NSURL(string: "http://crowd-hue-server.herokuapp.com/api/color")!
-        let url = NSURL(string: "http://192.168.86.111:3000/api/color")!
+        let url = NSURL(string: "http://crowd-hue-server.herokuapp.com/api/color")!
         
         let request = NSMutableURLRequest(URL: url)
         request.HTTPMethod = "PUT"
@@ -46,6 +45,7 @@ class ColorServer {
         var jsonObject = color.jsonObject
         jsonObject["room"] = room
         jsonObject["deviceID"] = deviceID.UUIDString
+        jsonObject["time"] = NSDate().timeIntervalSince1970
         
         request.setValue("application/json", forHTTPHeaderField: "Content-Type")
         request.HTTPBody = try! NSJSONSerialization.dataWithJSONObject(jsonObject, options: [])
