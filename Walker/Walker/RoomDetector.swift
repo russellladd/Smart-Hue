@@ -1,5 +1,5 @@
 //
-//  BeaconManager.swift
+//  RoomDetector.swift
 //  Walker
 //
 //  Created by Russell Ladd on 3/11/16.
@@ -9,16 +9,14 @@
 import Foundation
 import CoreLocation
 
-protocol BeaconManagerDelegate: class {
+protocol RoomDetectorDelegate: class {
     
-    func beaconManager(beaconManager: BeaconManager, didChangeRoom room: Int?)
+    func roomDetector(roomDetector: RoomDetector, didChangeRoom room: Int?)
 }
 
-class BeaconManager: NSObject, CLLocationManagerDelegate {
+class RoomDetector: NSObject, CLLocationManagerDelegate {
     
-    let locationManager = CLLocationManager()
-    
-    let beaconRegion = CLBeaconRegion(proximityUUID: NSUUID(UUIDString: "41EF49E6-2CD2-4F0C-A96A-2C23AD612746")!, identifier: "rooms")
+    // MARK: Initialization
     
     override init() {
         
@@ -31,12 +29,22 @@ class BeaconManager: NSObject, CLLocationManagerDelegate {
         locationManager.startRangingBeaconsInRegion(beaconRegion)
     }
     
-    weak var delegate: BeaconManagerDelegate?
+    // MARK: Location manager
+    
+    let locationManager = CLLocationManager()
+    
+    let beaconRegion = CLBeaconRegion(proximityUUID: NSUUID(UUIDString: "41EF49E6-2CD2-4F0C-A96A-2C23AD612746")!, identifier: "rooms")
+    
+    // MARK: Delegate
+    
+    weak var delegate: RoomDetectorDelegate?
+    
+    // MARK: Current room
     
     private(set) var currentRoom: Int? {
         didSet {
             if currentRoom != oldValue {
-                delegate?.beaconManager(self, didChangeRoom: currentRoom)
+                delegate?.roomDetector(self, didChangeRoom: currentRoom)
             }
         }
     }

@@ -8,7 +8,7 @@
 
 import UIKit
 
-class ColorsViewController: UIViewController, UICollectionViewDataSource, UICollectionViewDelegate, ColorViewControllerDelegate, BeaconManagerDelegate {
+class ColorsViewController: UIViewController, UICollectionViewDataSource, UICollectionViewDelegate, ColorViewControllerDelegate, RoomDetectorDelegate {
     
     // MARK: Initialization
     
@@ -19,7 +19,7 @@ class ColorsViewController: UIViewController, UICollectionViewDataSource, UIColl
         
         navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .Add, target: self, action: "addColor")
         
-        beaconManager.delegate = self
+        roomDetector.delegate = self
     }
     
     required init?(coder aDecoder: NSCoder) {
@@ -58,11 +58,11 @@ class ColorsViewController: UIViewController, UICollectionViewDataSource, UIColl
     
     let colorServer = ColorServer()
     
-    // MARK: Beacon manager
+    // MARK: Room detector
     
-    let beaconManager = BeaconManager()
+    let roomDetector = RoomDetector()
     
-    func beaconManager(beaconManager: BeaconManager, didChangeRoom room: Int?) {
+    func roomDetector(roomDetector: RoomDetector, didChangeRoom room: Int?) {
         colorServer.room = room
     }
     
