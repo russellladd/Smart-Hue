@@ -1,0 +1,5 @@
+Server URL
+http://crowd-hue-server.herokuapp.com/api/color
+
+Beacon UUID
+41EF49E6-2CD2-4F0C-A96A-2C23AD612746
