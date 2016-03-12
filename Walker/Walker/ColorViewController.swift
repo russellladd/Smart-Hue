@@ -25,8 +25,6 @@ class ColorViewController: UIViewController {
         
         self.navigationItem.leftBarButtonItem = UIBarButtonItem(barButtonSystemItem: .Cancel, target: self, action: "cancelAction")
         self.navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .Done, target: self, action: "doneAction")
-        
-        color.hue = Double(arc4random_uniform(101)) / 100.0
     }
 
     required init?(coder aDecoder: NSCoder) {

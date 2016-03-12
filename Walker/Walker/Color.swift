@@ -10,7 +10,7 @@ import UIKit
 
 struct Color {
     
-    var hue = 0.0
+    var hue = Double(arc4random_uniform(101)) / 100.0
     var saturation = 1.0
     var brightness = 1.0
     
